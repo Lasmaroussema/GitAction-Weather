@@ -1,0 +1,15 @@
+name: Weather Check
+on:
+  push:
+    branches: [main]
+env:
+  CITY: "London"
+jobs:
+  weather-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Display Weather
+        run: |
+          curl wttr.in/${{env.CITY}}
